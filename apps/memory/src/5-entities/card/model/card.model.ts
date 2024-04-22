@@ -1,0 +1,3 @@
+interface Card {
+  id: string;
+}
