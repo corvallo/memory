@@ -1,6 +1,5 @@
 import { Button } from '@ui-kit';
 import { useServerTranslation } from 'apps/memory/i18n';
-import Test from '../ui/test';
 
 const Header: React.FC<{ locale: string }> = async ({ locale }) => {
   const { t } = await useServerTranslation(locale);
