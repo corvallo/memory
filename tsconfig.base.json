@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "~/memory/app/*": ["apps/memory/src/1-app/*"],
+      "~/memory/pages/*": ["apps/memory/src/2-pages/*"],
+      "~/memory/widgets/*": ["apps/memory/src/3-widgets/*"],
+      "~/memory/features/*": ["apps/memory/src/4-features/*"],
+      "~/memory/entities/*": ["apps/memory/src/5-entities/*"],
+      "~/memory/shared/*": ["apps/memory/src/6-shared/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
