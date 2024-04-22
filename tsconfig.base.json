@@ -15,12 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ui-kit": ["packages/ui-kit/src/index.ts"],
       "~/memory/app/*": ["apps/memory/src/1-app/*"],
-      "~/memory/pages/*": ["apps/memory/src/2-pages/*"],
-      "~/memory/widgets/*": ["apps/memory/src/3-widgets/*"],
-      "~/memory/features/*": ["apps/memory/src/4-features/*"],
       "~/memory/entities/*": ["apps/memory/src/5-entities/*"],
-      "~/memory/shared/*": ["apps/memory/src/6-shared/*"]
+      "~/memory/features/*": ["apps/memory/src/4-features/*"],
+      "~/memory/pages/*": ["apps/memory/src/2-pages/*"],
+      "~/memory/shared/*": ["apps/memory/src/6-shared/*"],
+      "~/memory/widgets/*": ["apps/memory/src/3-widgets/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
