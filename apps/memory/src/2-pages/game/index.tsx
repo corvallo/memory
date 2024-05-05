@@ -8,9 +8,9 @@ import { BoardProvider } from '~/memory/shared/providers/board-provider';
 import Board from '~/memory/widgets/board';
 
 const Game: React.FC = async () => {
-  const result = await generateBoard(LG_BOARD);
+  const result = await generateBoard(MD_BOARD);
   return (
-    <BoardProvider boardSize={LG_BOARD} boardElements={result}>
+    <BoardProvider boardSize={MD_BOARD} boardElements={result}>
       <Board />
     </BoardProvider>
   );

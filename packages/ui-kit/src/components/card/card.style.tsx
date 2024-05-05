@@ -1,19 +1,13 @@
 import { tv } from 'tailwind-variants';
 export const card = tv({
   slots: {
-    base: `perspective-1000 h-full w-full`,
-    inner: `hover:transform hover:rotate-y-180 relative transform-style-3d w-full h-full transition-transform duration-75`,
-    content: `
-        backface-hidden 
-        shadow-[0_8px_14px_0_rgba(0,0,0,0.2)] 
-        absolute 
-        flex 
-        flex-col 
-        justify-center 
-        w-full h-full 
-        border rounded-2xl border-solid border-white`,
-    front: `bg-green-600`,
-    back: `bg-blue-600`,
+    base: ` h-full w-full perspective-1000`,
+    inner: `
+      relative h-full w-full rounded-xl shadow-xl transition-all duration-500 transform-style-3d 
+      `,
+
+    front: `absolute inset-0 rounded-xl bg-blue-400`,
+    back: `absolute inset-0 h-full w-full rounded-xl bg-purple-500/100 px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]`,
   },
   variants: {
     flip: {

@@ -20,13 +20,13 @@ const Board: React.FC = () => {
       return 'grid-cols-6 grid-flow-row auto-rows-fr';
     }
     if (s.boardSize === LG_BOARD) {
-      return 'grid-cols-12 grid-flow-row auto-rows-fr';
+      return 'grid-cols-8 grid-flow-row auto-rows-fr';
     }
   });
 
   return (
     <BoardContainer>
-      <div className={`grid ${gridClass} gap-1  w-full h-full`} ref={ref}>
+      <div className={`grid ${gridClass} gap-3  w-full h-full`} ref={ref}>
         {boardElements?.map((value, index) => (
           <CardButton key={`${value}_${index}`} index={index} value={value} />
         ))}

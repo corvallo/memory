@@ -7,7 +7,7 @@ export interface BoardStoreProps {
 export interface BoardStore {
   boardSize: number;
   boardElements: number[];
-  clickedElements: { index: number; value: number } | null;
+  activeElement: { index: number; value: number } | null;
   onCardClick: ({ index, value }: { index: number; value: number }) => void;
 }
 export const createBoardStore = ({
@@ -17,26 +17,27 @@ export const createBoardStore = ({
   createStore<BoardStore>((set) => ({
     boardSize,
     boardElements,
-    clickedElements: null,
+    activeElement: null,
+
     onCardClick: ({ index, value }) => {
       set((s) => {
-        if (s.clickedElements?.index === index) return s;
+        if (s.activeElement?.index === index) return s;
 
-        if (s.clickedElements?.value === value) {
+        if (s.activeElement?.value === value) {
           return {
-            clickedElements: null,
+            activeElement: null,
             boardElements: [
               ...s.boardElements.map((v) => (v === value ? 0 : v)),
             ],
           };
         }
-        if (!s.clickedElements) {
+        if (!s.activeElement) {
           return {
-            clickedElements: { index, value },
+            activeElement: { index, value },
           };
         }
         return {
-          clickedElements: null,
+          activeElement: null,
         };
       });
     },
