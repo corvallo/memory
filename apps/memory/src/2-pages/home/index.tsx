@@ -1,9 +1,16 @@
-import Board from '~/memory/widgets/board';
+import { Button } from '@ui-kit';
+import StartNewGame from '~/memory/features/start-new-game';
+import MainMenu from '~/memory/widgets/main-menu';
 
 export default async function Index() {
   return (
-    <div>
-      <Board />
-    </div>
+    <>
+      <MainMenu>
+        <StartNewGame />
+        <Button color="green" size="sm">
+          Play with friend
+        </Button>
+      </MainMenu>
+    </>
   );
 }

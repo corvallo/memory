@@ -19,16 +19,22 @@ export const theme: Config['theme'] = {
 };
 
 export const twPlugin = () => {
-  return ({ addBase, theme }: PluginAPI) => {
+  return ({ addBase, theme, addUtilities }: PluginAPI) => {
     addBase({
       html: { fontSize: '16px' },
       body: {
-        height: '100vh',
-        background: `linear-gradient(to bottom right,${theme(
-          'colors.red.500'
-        )},${theme('colors.red.500')},${theme('colors.orange.500')})`,
+        height: '100dvh',
+        background: `${theme('colors.neutral.700')}`,
         color: theme('colors.white'),
         fontFamily: 'Jua',
+      },
+    });
+    addUtilities({
+      '.backface-visible': {
+        'backface-visibility': 'visible',
+      },
+      '.backface-hidden': {
+        'backface-visibility': 'hidden',
       },
     });
   };

@@ -15,5 +15,5 @@ export default {
     extend: { ...theme },
   },
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  plugins: [twPlugin()],
+  plugins: [twPlugin(), require('@xpd/tailwind-3dtransforms')],
 } satisfies Config;

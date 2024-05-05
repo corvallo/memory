@@ -1,7 +1,7 @@
 import { join } from 'path';
 import type { Config } from 'tailwindcss';
 import { createGlobPatternsForDependencies } from '@nx/react/tailwind';
-import { theme } from './src/theme';
+import { theme, twPlugin } from './src/theme';
 
 export default {
   content: [
@@ -15,5 +15,5 @@ export default {
     extend: { ...theme },
   },
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  plugins: [],
+  plugins: [twPlugin(), require('@xpd/tailwind-3dtransforms')],
 } satisfies Config;

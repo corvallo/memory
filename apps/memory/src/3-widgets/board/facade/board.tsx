@@ -1,26 +1,37 @@
 'use client';
-import { BoardProvider } from '~/memory/shared/providers/board-provider';
+import CardButton from '~/memory/features/card-button';
+import {
+  LG_BOARD,
+  MD_BOARD,
+  SM_BOARD,
+} from '~/memory/shared/constants/board-constants';
+import { useBoardStore } from '~/memory/shared/providers/board-provider';
 import BoardContainer from '../ui/board-container';
-import { useState } from 'react';
-import generateBoard from '~/memory/shared/actions/generate-board';
+import { useCardDispenser } from '../hooks/use-card-dispenser';
 
 const Board: React.FC = () => {
-  const [elements, setElements] = useState<number[]>([]);
+  const boardElements = useBoardStore((s) => s.boardElements);
+  const { ref } = useCardDispenser();
+  const gridClass = useBoardStore((s) => {
+    if (s.boardSize === SM_BOARD) {
+      return 'grid-cols-4 grid-flow-row auto-rows-fr';
+    }
+    if (s.boardSize === MD_BOARD) {
+      return 'grid-cols-6 grid-flow-row auto-rows-fr';
+    }
+    if (s.boardSize === LG_BOARD) {
+      return 'grid-cols-12 grid-flow-row auto-rows-fr';
+    }
+  });
+
   return (
-    <BoardProvider boardSize={128}>
-      {/* <BoardContainer /> */}
-      <button
-        onClick={async () => {
-          const res = await generateBoard(8);
-          setElements(res);
-        }}
-      >
-        OK
-      </button>
-      {elements.map((v) => {
-        return <div key={v}>{v}</div>;
-      })}
-    </BoardProvider>
+    <BoardContainer>
+      <div className={`grid ${gridClass} gap-1  w-full h-full`} ref={ref}>
+        {boardElements?.map((value, index) => (
+          <CardButton key={`${value}_${index}`} index={index} value={value} />
+        ))}
+      </div>
+    </BoardContainer>
   );
 };
 export default Board;

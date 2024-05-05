@@ -15,8 +15,9 @@ export const BoardContext = createContext<ReturnType<
 export const BoardProvider: React.FC<PropsWithChildren & BoardStoreProps> = ({
   children,
   boardSize = 8,
+  boardElements = [],
 }) => {
-  const store = useRef(createBoardStore({ boardSize })).current;
+  const store = useRef(createBoardStore({ boardSize, boardElements })).current;
   return (
     <BoardContext.Provider value={store}>{children}</BoardContext.Provider>
   );
